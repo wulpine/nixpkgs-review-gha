@@ -136,6 +136,7 @@ jobs:
       - name: setup nix
         uses: ./.github/actions/setup-nix
         with:
+          extra-nix-config: ${{ vars.EXTRA_NIX_CONFIG }}
           system: ${{ matrix.system }}
           sandbox: ${{
             (matrix.system == 'x86_64-darwin' && inputs.x86_64-darwin == 'yes_sandbox_false'

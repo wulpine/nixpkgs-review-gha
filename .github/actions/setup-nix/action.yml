@@ -7,6 +7,9 @@ inputs:
   sandbox:
     type: string
     default: "true"
+  extra-nix-config:
+    type: string
+    default: ""
 
 runs:
   using: composite
@@ -51,6 +54,7 @@ runs:
           build-dir = /nix/build
           sandbox = ${{ inputs.sandbox }}
           system = ${{ inputs.system }}
+          ${{ inputs.extra-nix-config }}
 
     - name: create build-dir
       shell: bash

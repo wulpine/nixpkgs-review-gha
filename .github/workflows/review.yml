@@ -166,12 +166,12 @@ jobs:
           nixpkgs-review -- \
             pr ${PR_NUMBER} \
             --no-shell \
+            --no-exit-status \
             --no-headers \
             --print-result \
             --build-args="-L" \
             --pr-json="$PR_JSON" \
-            $EXTRA_ARGS \
-            || true
+            $EXTRA_ARGS
         working-directory: nixpkgs
         env:
           GITHUB_TOKEN: ${{ github.token }}
